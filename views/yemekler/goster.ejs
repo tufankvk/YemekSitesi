@@ -1,0 +1,64 @@
+<% include ../partials/header %>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-8">
+			<div class="thumbnail">
+				<h1><%= yemek.adi %></h1>
+				<div class="thumbnail">
+					<div class="thumbnail">
+						<img class="img-responsive" src="<%= yemek.resim %>" alt="bizimRestaurant" style="width:100%;">
+					</div>
+					<div class="thumbnail" style="margin:10px 10px;">
+						<div class="caption-full">
+							<p style="margin:10px 10px;" >
+								<strong>Yemegi Ekleyen: </strong> <i><%= yemek.olusturan.username %></i>
+							</p>
+							<a style="margin:10px 10px;"  href="/yemekler/<%= yemek._id%>/duzenle" class="btn btn-default">
+								<i class="fa fa-pencil-square-o"> Duzenle</i>
+							</a>
+							<form action="/yemekler/<%=yemek._id%>?_method=DELETE" method="POST" style="display:inline;margin:10px 10px; ">
+								<button class="btn btn-danger">Sil</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="col-md-4">
+			<h1 style="padding-left:8rem;">Tarifi</h1>
+			<div class="thumbnail">
+				<p><%= yemek.aciklama %></p>
+			</div>	
+		</div>
+		<div class="col-md-12">
+			<div class="media comment-box">
+				<% yemek.yorumlar.forEach(function(yorum){ %>
+
+				<div class="col-md-1">
+					<div class="media-left">
+						<a href="#">
+							<img class="img-responsive user-photo" src="https://cdn.pixabay.com/photo/2016/08/20/05/38/avatar-1606916__340.png" alt="YemekSitesi">
+						</a>
+					</div>
+				</div>
+				<div class="col-md-11">
+					<div class="media-body">
+						<h4 class="media-heading"> <strong><p><%= yorum.yazar.username %></p></strong> </h4>
+						<p><%= yorum.text %> <span class="pull-right">20 gün önce</span>  </p>
+					</div>
+				</div>
+				<% }) %>
+				<div class="text-right">
+					<a class="btn btn-default btn-lg" href="/yemekler/<%=yemek._id%>/yorumlar/yeni"> <i class="fa fa-comments" aria-hidden="true"></i>
+						Yorum Ekle</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+<% include ../partials/footer %>

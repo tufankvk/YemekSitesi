@@ -1,0 +1,23 @@
+<% include ../partials/header %>
+
+    <div class="container">
+        <h2>USers From Database</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Username</th>
+                </tr>
+            </thead>
+            <tbody>
+            <% users.forEach(function(user){  %>
+                <tr class="success">
+                    <td><%= user.id %></td>
+                    <td><%= user.username %></td>
+                </tr>
+            <% }) %>
+            </tbody>
+        </table>
+    </div>
+
+<% include ../partials/footer %>

@@ -1,0 +1,7 @@
+INDEX   /yemekler
+NEW     /yemekler/yeni
+CREATE  /yemekler
+SHOW    /yemekler/:id
+
+NEW     yemekler/:id/yorumlar/yeni    GET
+CREATE  yemekler/:id/yorumlar      POST
